@@ -25,13 +25,13 @@ enableEmoji: true
 # Custom parameters
 params:
   # Copyright Notice
-  copyright: © 2021 Copyright.
+  copyright: © 2023 Copyright.
 
   # Meta description for your site.  This will help the search engines to find your site.
   description: Portfolio and personal blog of Nivesh Krishna.
 
   # background image of the landing page
-  background: "/assets/images/background.png"
+  background: "/assets/images/background.jpg"
 
   # Provide logos for your site. The inverted logo will be used in the initial
   # transparent navbar and the main logo will be used in the non-transparent navbar.
@@ -48,9 +48,9 @@ params:
 
   # specify the list of custom menus that you want to show in the top navbar.
   # they will be separated by a divider from the main menus.
-  customMenus:
-  - name: Notes
-    url: https://hossainnotes.netlify.app/docs/example/
+  # customMenus:
+  # - name: Notes
+  #   url: https://hossainnotes.netlify.app/docs/example/
 
   # Provide newsletter configuration. This feature hasn't been implemented yet.
   # Currently, you can just hide it from the footer.
@@ -70,6 +70,6 @@ params:
       phone: "+919010912005"
     # a summary of what you do
     summary:
-    - I am a Developer
-    - I work with Python and many other things
-    - I love to work with some fun projects
+    - I am an Engineer
+    - I work with software and computers
+    - I love to work on some fun projects
