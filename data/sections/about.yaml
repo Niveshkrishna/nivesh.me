@@ -16,7 +16,7 @@ company:
 resume: "files/resume.pdf"
 
 # a summary about you
-summary: 'For the past four years, I’ve been turning ideas into reality by building large-scale web applications and developing robust APIs. As a full-stack developer, I enjoy working across both frontend and backend to create seamless, user-friendly experiences. From integrating complex systems to optimizing performance, I love tackling big challenges and delivering solutions that scale.'
+summary: 'For the past four years, I’ve been turning ideas into reality by building large-scale web applications and developing robust APIs. As a full-stack developer, I enjoy working across both frontend and backend to create seamless, user-friendly experiences. From integrating complex systems to optimizing performance, I love tackling big challenges and delivering solutions that scale.\n\nRelevant Experience:\n- Fullstack Engineer at Velocity Clinical Research: Led the development of scalable web applications for clinical trial management, integrating secure APIs and optimizing user interfaces for efficiency.\n- Senior Software Engineer at Example Co.: Designed and managed cloud-native tools for Kubernetes, including disaster recovery solutions and leading backend teams.\n- Junior Software Engineer at Example Co.: Implemented and tested new features, provided client support, and contributed to technology adoption.\n- Software Engineer at PreExample Co.: Developed example codes, engaged in continuous learning, and contributed to team knowledge sharing.\n- Intern at Intern Counting Company (ICC): Gained foundational experience in software engineering and team collaboration.'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
