@@ -10,54 +10,67 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
-    url: "https://www.example.com"
-    location: Dhaka Branch
+    name: Velocity Clinical Research
+    url: "https://velocityclinical.com"
+    location: Hyderabad, India
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+    overview: Velocity Clinical Research is a leading integrated site organization for clinical trials.
   positions:
-  - designation: Senior Software Engineer
-    start: Nov 2019
+  - designation: Fullstack Engineer
+    start: Aug 2023
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
-
-  - designation: Junior Software Engineer
-    start: Nov 2017
-    end: Oct 2019
-    responsibilities:
-    - Implement and test xyz feature for abc tool.
-    - Support client for abc tool.
-    - Learn k,d,w technology for xyz.
+    - "**Real-Time Data Platform**: Built a WebSocket-based platform serving 10k+ concurrent users with sub-second latency."
+    - "**GenAI & Automation**: Developed RAG systems and LLM solutions for text summarization and automated customer support."
+    - "**Performance Optimization**: Achieved 30x API speedup and 5x DB performance gain through query tuning and caching."
+    - "**System Architecture**: Architected event-driven microservices using AWS Lambda, SQS, and Docker."
 
 - company:
-    name: PreExample Co.
-    url: "https://www.preexample.com"
-    location: Nowhere
-    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+    name: Murena SAS
+    url: "https://murena.com"
+    location: Remote
+    overview: Murena offers smartphones with /e/OS, a pro-privacy operating system.
   positions:
   - designation: Software Engineer
-    start: March 2016
-    end: May 2017
+    start: Aug 2022
+    end: Aug 2023
     responsibilities:
-    - Write lots of example codes.
-    - Read lots of examples.
-    - See lots of example videos.
+    - "**Privacy & Security**: Implemented SSO and encryption standards to protect sensitive user data."
+    - "**Data Engineering**: Designed workflows and interactive dashboards (Plotly, D3.js) for product analytics."
+    - "**Backend Optimization**: Improved system scalability by 80% using async processing and efficient query design."
+    - "**DevOps**: Automated CI/CD pipelines and integrated observability stacks (Prometheus, ELK)."
+
+  - designation: Junior Software Engineer
+    start: Mar 2020
+    end: Aug 2022
+    responsibilities:
+    - "**Full-Stack Development**: Built responsive web apps and REST APIs using React.js, Vue.js, Node.js, and Python."
+    - "**Infrastructure**: Deployed and managed applications on Linux servers using Nginx, Apache, and Docker."
+    - "**Database Management**: Designed schemas and implemented caching strategies (Redis) for high-availability systems."
 
 - company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.intern.com"
-    location: Intern Land
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
+    name: IIIT-Hyderabad
+    url: "https://www.iiit.ac.in"
+    location: Hyderabad, India
+    overview: International Institute of Information Technology, Hyderabad.
   positions:
-  - designation: Intern
-    start: Jun 2015
-    end: Jan 2016
+  - designation: Master of Science (Research)
+    start: Dec 2024
+    end:  
     responsibilities:
-    - Count lost of interns.
-    - Count more interns.
-    - Count me as an intern.
+    - Computer Science and Artificial Intelligence
+
+- company:
+    name: JNTU Hyderabad
+    url: "https://jntuh.ac.in"
+    location: Hyderabad, India
+    overview: Jawaharlal Nehru Technological University Hyderabad.
+  positions:
+  - designation: Bachelor of Technology
+    start: Jun 2016
+    end: Mar 2020
+    responsibilities:
+    - Mechanical Engineering
+    - First class with distinction

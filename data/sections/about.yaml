@@ -6,48 +6,37 @@ section:
   showOnNavbar: true
 
 # your designation
-designation: Fullstack Engineer
+designation: Fullstack Software Engineer
 # your company information
 company:
   name: Velocity Clinical Research
   url: "https://velocityclinical.com"
 
 # your resume. this file path should be relative to you "static" directory
-resume: "files/resume.pdf"
+resume: "files/Nivesh-Krishna-CV-Resume.pdf"
 
 # a summary about you
-summary: 'For the past four years, I’ve been turning ideas into reality by building large-scale web applications and developing robust APIs. As a full-stack developer, I enjoy working across both frontend and backend to create seamless, user-friendly experiences. From integrating complex systems to optimizing performance, I love tackling big challenges and delivering solutions that scale.'
+summary: 'For the past five years, I’ve been turning ideas into reality by building large-scale web applications and developing robust APIs. As a full-stack developer, I enjoy working across both frontend and backend to create seamless, user-friendly experiences. From integrating complex systems to optimizing performance, I love tackling big challenges and delivering solutions that scale.'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
 socialLinks:
 - name: Email
   icon: "fas fa-envelope"
-  url: "nivesh@e.email"
-
-- name: Github
-  icon: "fab fa-github"
-  url: "https://www.github.com/niveshkrishna"
-
-- name: Gitlab
-  icon: "fab fa-gitlab"
-  url: "https://gitlab.e.foundation/nivesh"
-
-#- name: Stackoverflow
-  #icon: "fab fa-stack-overflow"
-  #url: "#"
+  url: "mailto:vniveshkrishna.98@gmail.com"
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
   url: "https://www.linkedin.com/in/nivesh-krishna-ba80496b/"
 
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/niveshkrishna"
+
 - name: Twitter
   icon: "fab fa-twitter"
   url: "https://twitter.com/vniveshkrishna"
 
-- name: Instagram
-  icon: "fab fa-instagram"
-  url: "https://www.instagram.com/me.nivesh/"
 
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.

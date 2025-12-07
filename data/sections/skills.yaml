@@ -10,39 +10,65 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
-- name: Kubernetes
-  icon: "/assets/images/skills/kubernetes.png"
-  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
-  url: "https://kubernetes.io/"
+- name: Python
+  icon: "/assets/images/skills/python.png"
+  summary: "Django, Flask, FastAPI"
+  url: "https://www.python.org/"
 
-- name: Go Development
-  icon: "/assets/images/skills/go.png"
-  summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
-  url: "https://golang.org/"
+- name: AI Skills
+  icon: "/assets/images/skills/ai.png"
+  summary: "LangChain, LangGraph, OpenAI, Chroma"
 
-- name: Cloud Computing
-  icon: "/assets/images/skills/cloud.png"
-  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
+- name: Web Technologies
+  icon: "/assets/images/skills/web.png"
+  summary: "HTML, CSS, jQuery, PHP"
 
-- name: Docker
-  icon: "/assets/images/skills/docker.svg"
-  summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
-  url: "https://www.docker.com/"
+- name: Javascript
+  icon: "/assets/images/skills/javascript.png"
+  summary: "Vue.js, Node.js, React"
 
-- name: Prometheus
-  icon: "/assets/images/skills/prometheus.png"
-  summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
-  url: "https://prometheus.io/"
+- name: GIT
+  icon: "/assets/images/skills/git.png"
+  summary: "Version control"
+  url: "https://git-scm.com/"
+
+- name: Shell Dictionary
+  icon: "/assets/images/skills/terminal.png"
+  summary: "Bash/Zsh, Shell scripting"
 
 - name: Linux
   icon: "/assets/images/skills/linux.png"
-  summary: "Using as the main operating system. Capable of writing bash/shell scripts."
+  summary: "Main operating system"
 
-- name: Git
-  icon: "/assets/images/skills/git.png"
-  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
-  url: "https://git-scm.com/"
+- name: Ruby
+  icon: "/assets/images/skills/ruby.png"
+  summary: "Ruby on Rails"
 
-- name: C++
-  icon: "/assets/images/skills/c++.png"
-  summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
+- name: Automation
+  icon: "/assets/images/skills/automation.png"
+  summary: "Ansible, Gitlab, Serverless"
+
+- name: Web Server
+  icon: "/assets/images/skills/server.png"
+  summary: "Nginx, Apache, HAProxy"
+
+- name: Docker
+  icon: "/assets/images/skills/docker.svg"
+  summary: "Containerization"
+  url: "https://www.docker.com/"
+
+- name: Databases
+  icon: "/assets/images/skills/database.png"
+  summary: "MariaDB, MongoDB, InfluxDB, Postgres, MySQL"
+
+- name: Cache
+  icon: "/assets/images/skills/cache.png"
+  summary: "Varnish, Redis, Memcached"
+
+- name: Monitoring
+  icon: "/assets/images/skills/monitoring.png"
+  summary: "Netdata, Opentelemetry, Sentry, Cloudwatch"
+
+- name: Data Tools
+  icon: "/assets/images/skills/data.png"
+  summary: "ELK, Matomo, Weblate"
