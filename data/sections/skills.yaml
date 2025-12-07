@@ -11,45 +11,45 @@ section:
 # Give a summary of you each skill in the summary section.
 skills:
 - name: Python
-  icon: "/assets/images/skills/python.png"
+  icon: "/assets/images/skills/python.svg"
   summary: "Django, Flask, FastAPI"
   url: "https://www.python.org/"
 
 - name: AI Skills
-  icon: "/assets/images/skills/ai.png"
+  icon: "/assets/images/skills/tensorflow.svg"
   summary: "LangChain, LangGraph, OpenAI, Chroma"
 
 - name: Web Technologies
-  icon: "/assets/images/skills/web.png"
+  icon: "/assets/images/skills/html5.svg"
   summary: "HTML, CSS, jQuery, PHP"
 
 - name: Javascript
-  icon: "/assets/images/skills/javascript.png"
+  icon: "/assets/images/skills/javascript.svg"
   summary: "Vue.js, Node.js, React"
 
 - name: GIT
-  icon: "/assets/images/skills/git.png"
+  icon: "/assets/images/skills/git.svg"
   summary: "Version control"
   url: "https://git-scm.com/"
 
 - name: Shell Dictionary
-  icon: "/assets/images/skills/terminal.png"
+  icon: "/assets/images/skills/bash.svg"
   summary: "Bash/Zsh, Shell scripting"
 
 - name: Linux
-  icon: "/assets/images/skills/linux.png"
+  icon: "/assets/images/skills/linux.svg"
   summary: "Main operating system"
 
 - name: Ruby
-  icon: "/assets/images/skills/ruby.png"
+  icon: "/assets/images/skills/ruby.svg"
   summary: "Ruby on Rails"
 
 - name: Automation
-  icon: "/assets/images/skills/automation.png"
+  icon: "/assets/images/skills/gitlab.svg"
   summary: "Ansible, Gitlab, Serverless"
 
 - name: Web Server
-  icon: "/assets/images/skills/server.png"
+  icon: "/assets/images/skills/nginx.svg"
   summary: "Nginx, Apache, HAProxy"
 
 - name: Docker
@@ -58,17 +58,17 @@ skills:
   url: "https://www.docker.com/"
 
 - name: Databases
-  icon: "/assets/images/skills/database.png"
+  icon: "/assets/images/skills/mysql.svg"
   summary: "MariaDB, MongoDB, InfluxDB, Postgres, MySQL"
 
 - name: Cache
-  icon: "/assets/images/skills/cache.png"
+  icon: "/assets/images/skills/redis.svg"
   summary: "Varnish, Redis, Memcached"
 
 - name: Monitoring
-  icon: "/assets/images/skills/monitoring.png"
+  icon: "/assets/images/skills/prometheus.svg"
   summary: "Netdata, Opentelemetry, Sentry, Cloudwatch"
 
 - name: Data Tools
-  icon: "/assets/images/skills/data.png"
+  icon: "/assets/images/skills/elasticsearch.svg"
   summary: "ELK, Matomo, Weblate"
