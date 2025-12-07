@@ -13,11 +13,9 @@ markup:
     endLevel: 6
     ordered: false
 
-# Enable Google Analytics
-googleAnalytics: "" # Disabled for now
+#  now
 
 # Enable Disqus forum
-disqusShortname: "" # Disabled for now
 
 # Enable global emoji support
 enableEmoji: true
