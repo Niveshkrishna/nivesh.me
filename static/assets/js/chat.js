@@ -47,6 +47,16 @@ function removeTypingIndicator() {
     }
 }
 
+// Handle suggestion chips
+document.querySelectorAll('.suggestion-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+        const message = chip.dataset.message;
+        userInput.value = message;
+        // Trigger submit logic
+        chatForm.dispatchEvent(new Event('submit'));
+    });
+});
+
 // Handle form submission
 chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
