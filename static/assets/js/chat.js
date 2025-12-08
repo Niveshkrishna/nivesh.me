@@ -14,9 +14,14 @@ function addMessage(content, type) {
 
     const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+    let messageHtml = content;
+    if (typeof marked !== 'undefined') {
+        messageHtml = marked.parse(content);
+    }
+
     messageDiv.innerHTML = `
     <div class="message-content glass-bubble">
-      <p>${content}</p>
+      <div class="markdown-body">${messageHtml}</div>
     </div>
     <div class="message-time">${time}</div>
   `;
