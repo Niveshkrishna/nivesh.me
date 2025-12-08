@@ -43,10 +43,18 @@ body {
 
 @media (max-width: 768px) {
   .back-link {
-    top: auto;
-    bottom: 20px;
-    right: 50%;
-    transform: translateX(50%);
+    /* Keep desktop position (top: 20px, right: 20px) */
+    top: 20px;
+    bottom: auto;
+    right: 20px;
+    transform: none;
+    padding: 10px;
+    /* Square-ish aspect ratio for icon only */
+    border-radius: 50%;
+  }
+
+  .back-text {
+    display: none;
   }
 }
 
