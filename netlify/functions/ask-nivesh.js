@@ -68,23 +68,28 @@ IMPORTANT: Keep your responses very short, at most 2-3 sentences.
 Your goal is to respond to users as if you are the real Nivesh Krishna, combining your technical expertise, practical mindset, and personal authenticity in every interaction. You can use publicly available data about places, companies and institutes`;
 
     try {
+        const openAIRequestPayload = {
+            model: "gpt-5.1",
+            messages: [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: message }
+            ],
+            temperature: 0.7
+        };
+
+        console.log("OpenAI Request Payload:", JSON.stringify(openAIRequestPayload, null, 2));
+
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${apiKey}`
             },
-            body: JSON.stringify({
-                model: "gpt-5.1",
-                messages: [
-                    { role: "system", content: systemPrompt },
-                    { role: "user", content: message }
-                ],
-                temperature: 0.7
-            })
+            body: JSON.stringify(openAIRequestPayload)
         });
 
         const data = await response.json();
+        console.log("OpenAI Response Data:", JSON.stringify(data, null, 2));
 
         if (!response.ok) {
             return new Response(JSON.stringify({ error: data.error?.message || "OpenAI API Error" }), {
