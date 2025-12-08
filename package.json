@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Nivesh.me Portfolio",
   "type": "module",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "netlify-cli": "^23.12.3"
+  }
 }
