@@ -1,9 +1,0 @@
-{
-  "name": "nivesh-me",
-  "version": "1.0.0",
-  "description": "Nivesh.me Portfolio",
-  "type": "module",
-  "dependencies": {
-    "netlify-cli": "^23.12.3"
-  }
-}
