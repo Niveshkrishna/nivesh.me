@@ -1,18 +1,25 @@
-const https = require('https');
+import https from 'https';
 
-exports.handler = async function (event, context) {
-    if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: "Method Not Allowed" };
+export default async (req, context) => {
+    if (req.method !== "POST") {
+        return new Response("Method Not Allowed", { status: 405 });
     }
 
-    const { message } = JSON.parse(event.body);
-    const apiKey = process.env.OPENAI_API_KEY;
+    let body;
+    try {
+        body = await req.json();
+    } catch (e) {
+        return new Response("Invalid JSON", { status: 400 });
+    }
+
+    const { message } = body;
+    const apiKey = Deno.env.get("OPENAI_API_KEY") || process.env.OPENAI_API_KEY;
 
     if (!apiKey) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "OpenAI API key not configured" }),
-        };
+        return new Response(JSON.stringify({ error: "OpenAI API key not configured" }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" }
+        });
     }
 
     const systemPrompt = `You are an AI avatar of Nivesh Krishna, a Fullstack Software Engineer.
@@ -45,34 +52,35 @@ Answer questions about Nivesh as if you are him. Be concise and engaging.`;
         }
     };
 
-    return new Promise((resolve, reject) => {
-        const req = https.request(options, (res) => {
+    return new Promise((resolve) => {
+        const request = https.request(options, (res) => {
             let body = '';
             res.on('data', (chunk) => (body += chunk));
             res.on('end', () => {
                 if (res.statusCode >= 200 && res.statusCode < 300) {
                     const response = JSON.parse(body);
-                    resolve({
-                        statusCode: 200,
-                        body: JSON.stringify({ reply: response.choices[0].message.content }),
-                    });
+                    resolve(new Response(JSON.stringify({ reply: response.choices[0].message.content }), {
+                        status: 200,
+                        headers: { "Content-Type": "application/json" }
+                    }));
                 } else {
-                    resolve({
-                        statusCode: res.statusCode,
-                        body: body,
-                    });
+                    resolve(new Response(body, { status: res.statusCode }));
                 }
             });
         });
 
-        req.on('error', (e) => {
-            resolve({
-                statusCode: 500,
-                body: JSON.stringify({ error: e.message }),
-            });
+        request.on('error', (e) => {
+            resolve(new Response(JSON.stringify({ error: e.message }), {
+                status: 500,
+                headers: { "Content-Type": "application/json" }
+            }));
         });
 
-        req.write(data);
-        req.end();
+        request.write(data);
+        request.end();
     });
+};
+
+export const config = {
+    path: "/.netlify/functions/ask-nivesh"
 };

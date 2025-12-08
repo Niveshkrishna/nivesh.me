@@ -2,6 +2,7 @@
   "name": "nivesh-me",
   "version": "1.0.0",
   "description": "Nivesh.me Portfolio",
+  "type": "module",
   "dependencies": {},
   "devDependencies": {}
 }
