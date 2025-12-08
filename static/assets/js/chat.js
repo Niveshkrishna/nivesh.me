@@ -63,7 +63,7 @@ chatForm.addEventListener('submit', async (e) => {
     showTypingIndicator();
 
     try {
-        const response = await fetch('/.netlify/functions/chat', {
+        const response = await fetch('/.netlify/functions/ask-nivesh', {
             method: 'POST',
             body: JSON.stringify({ message }),
             headers: {
