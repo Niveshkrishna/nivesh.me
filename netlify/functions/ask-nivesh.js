@@ -1,3 +1,6 @@
+import "dotenv/config";
+import OpenAI from "openai";
+
 export default async (req, context) => {
     if (req.method !== "POST") {
         return new Response("Method Not Allowed", { status: 405 });
@@ -10,8 +13,8 @@ export default async (req, context) => {
         return new Response("Invalid JSON", { status: 400 });
     }
 
-    const { message } = body;
-    // Access environment variables via Netlify global or standard process.env
+    const { message, previous_response_id } = body;
+
     const apiKey = (typeof Netlify !== "undefined" && Netlify.env)
         ? Netlify.env.get("OPENAI_API_KEY")
         : process.env.OPENAI_API_KEY;
@@ -22,6 +25,10 @@ export default async (req, context) => {
             headers: { "Content-Type": "application/json" }
         });
     }
+
+    const client = new OpenAI({
+        apiKey: apiKey,
+    });
 
     const systemPrompt = `You are Nivesh Krishna, a full-stack software engineer based in Hyderabad, India. You have over five and a half years of experience designing, developing, and deploying scalable software systems for real-world business use cases. You specialize in building high-performance, production-grade applications across the full stack and integrating modern AI capabilities into them.
 
@@ -68,43 +75,96 @@ IMPORTANT: Keep your responses very short, at most 2-3 sentences.
 Your goal is to respond to users as if you are the real Nivesh Krishna, combining your technical expertise, practical mindset, and personal authenticity in every interaction. You can use publicly available data about places, companies and institutes`;
 
     try {
-        const openAIRequestPayload = {
+        console.log("Sending streaming request to OpenAI via SDK...");
+
+        const completionParams = {
             model: "gpt-5.1",
-            messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: message }
-            ],
-            temperature: 0.7
+            input: message,
+            instructions: systemPrompt,
+            temperature: 0.7,
+            stream: true,
         };
 
-        console.log("OpenAI Request Payload:", JSON.stringify(openAIRequestPayload, null, 2));
-
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}`
-            },
-            body: JSON.stringify(openAIRequestPayload)
-        });
-
-        const data = await response.json();
-        console.log("OpenAI Response Data:", JSON.stringify(data, null, 2));
-
-        if (!response.ok) {
-            return new Response(JSON.stringify({ error: data.error?.message || "OpenAI API Error" }), {
-                status: response.status,
-                headers: { "Content-Type": "application/json" }
-            });
+        if (previous_response_id) {
+            completionParams.previous_response_id = previous_response_id;
         }
 
-        return new Response(JSON.stringify({ reply: data.choices[0].message.content }), {
-            status: 200,
-            headers: { "Content-Type": "application/json" }
+        const stream = await client.responses.create(completionParams);
+
+        const readable = new ReadableStream({
+            async start(controller) {
+                const encoder = new TextEncoder();
+                const sendEvent = (event, data) => {
+                    controller.enqueue(encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`));
+                };
+
+                try {
+                    for await (const chunk of stream) {
+                        // Debug log to see exactly what we get
+                        // console.log("Stream Chunk:", JSON.stringify(chunk));
+
+                        // 0. Handle Response ID (Context Retention)
+                        if (chunk.type === 'response.created' && chunk.response && chunk.response.id) {
+                            sendEvent("meta", { response_id: chunk.response.id });
+                        }
+
+                        let contentDelta = "";
+                        let thinkingDelta = "";
+
+                        // Handle SDK v1/responses specific events
+                        // The debug output confirms:
+                        // chunk.type === 'response.output_text.delta' -> chunk.delta has the text
+
+                        if (chunk.type === 'response.output_text.delta') {
+                            contentDelta = chunk.delta;
+                        }
+
+                        // Speculative: If reasoning comes as text delta but different type?
+                        // Or maybe 'response.reasoning.delta'? 
+                        // For now we focus on content.
+                        if (chunk.type === 'response.reasoning_text.delta') {
+                            thinkingDelta = chunk.delta;
+                        }
+
+                        // Check for standard Chat Completions structure (fallback for older models/endpoints)
+                        if (chunk.choices && chunk.choices[0]?.delta?.content) {
+                            contentDelta = chunk.choices[0].delta.content;
+                        }
+                        if (chunk.choices && chunk.choices[0]?.delta?.reasoning_content) {
+                            thinkingDelta = chunk.choices[0].delta.reasoning_content;
+                        }
+
+                        // We can remove the complex chunk.output iteration as the stream yields flat events.
+
+                        if (thinkingDelta) {
+                            sendEvent("thinking", thinkingDelta);
+                        }
+
+                        if (contentDelta) {
+                            sendEvent("content", contentDelta);
+                        }
+                    }
+                } catch (err) {
+                    console.error("Stream processing error:", err);
+                    sendEvent("error", err.message);
+                } finally {
+                    sendEvent("done", "[DONE]");
+                    controller.close();
+                }
+            }
+        });
+
+        return new Response(readable, {
+            headers: {
+                "Content-Type": "text/event-stream",
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+            },
         });
 
     } catch (error) {
-        return new Response(JSON.stringify({ error: error.message }), {
+        console.error("Error calling OpenAI:", error);
+        return new Response(JSON.stringify({ error: error.message || "OpenAI API Error" }), {
             status: 500,
             headers: { "Content-Type": "application/json" }
         });

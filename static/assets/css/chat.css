@@ -422,3 +422,50 @@ body {
     border-radius: 0;
   }
 }
+
+/* Thinking Process Styles */
+.thinking-box {
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thinking-box details {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.thinking-box summary {
+  font-weight: 500;
+  user-select: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  list-style: none;
+  /* Hide default arrow in some browsers */
+}
+
+.thinking-box summary::-webkit-details-marker {
+  display: none;
+}
+
+.thinking-box summary::before {
+  content: '💭';
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.thinking-box summary:hover {
+  opacity: 1;
+}
+
+.thinking-content {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: pre-wrap;
+  font-family: monospace;
+  opacity: 0.9;
+}
