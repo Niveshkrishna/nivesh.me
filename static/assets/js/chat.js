@@ -56,19 +56,20 @@ function removeTypingIndicator() {
 document.querySelectorAll('.suggestion-chip').forEach(chip => {
     chip.addEventListener('click', () => {
         const message = chip.dataset.message;
-        userInput.value = message;
-        // Trigger submit logic
-        chatForm.dispatchEvent(new Event('submit'));
+            sendMessage(message);
     });
 });
 
 // Handle form submission
-chatForm.addEventListener('submit', async (e) => {
+chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const message = userInput.value.trim();
-    if (!message) return;
+    if (message) {
+        sendMessage(message);
+    }
+});
 
+async function sendMessage(message) {
     // Add user message
     addMessage(message, 'user');
     userInput.value = '';
@@ -103,4 +104,4 @@ chatForm.addEventListener('submit', async (e) => {
         userInput.disabled = false;
         userInput.focus();
     }
-});
+}
