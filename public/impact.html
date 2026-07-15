@@ -380,6 +380,45 @@
             box-shadow: 0 30px 60px rgba(10, 37, 64, 0.18);
         }
 
+        .perk-panel {
+            max-width: 1200px;
+            margin: 1.5rem auto 0;
+            padding: 1.4rem 1.5rem;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(0, 112, 243, 0.06), rgba(16, 185, 129, 0.08));
+            border: 1px solid rgba(0, 112, 243, 0.12);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .perk-panel h3 {
+            font-size: 1.05rem;
+            margin-bottom: .35rem;
+        }
+
+        .perk-panel p {
+            color: var(--light-text);
+        }
+
+        .perk-list {
+            display: flex;
+            gap: .6rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .perk-chip {
+            padding: .5rem .8rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            color: var(--dark-text);
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
         .cta-panel p {
             color: rgba(255, 255, 255, 0.8);
             margin-top: .35rem;
@@ -785,7 +824,9 @@
             .demo-tabs { gap: .4rem; }
             .demo-tab { padding: .5rem 1rem; font-size: .8rem; }
             .demo-browser-content { padding: 1rem; }
+            .perk-panel,
             .cta-panel { flex-direction: column; align-items: flex-start; }
+            .perk-list,
             .cta-actions { justify-content: flex-start; }
         }
     </style>
@@ -1273,6 +1314,21 @@
                 <h3>Policy-ready data</h3>
                 <p>Support civic engagement programs with trusted reporting that can be reviewed, shared, and measured at
                     scale.</p>
+            </div>
+        </div>
+
+        <div class="perk-panel">
+            <div>
+                <div class="eyebrow-mini">Volunteer perks</div>
+                <h3>Partner companies can reward participation with real-world benefits.</h3>
+                <p>Give volunteers gym discounts, coupons, exclusive event access, networking invites, and other perks
+                    that make consistent service feel valuable and visible.</p>
+            </div>
+            <div class="perk-list" aria-label="Example volunteer perks">
+                <span class="perk-chip">Gym discounts</span>
+                <span class="perk-chip">Coupons</span>
+                <span class="perk-chip">Exclusive event access</span>
+                <span class="perk-chip">Networking invites</span>
             </div>
         </div>
 
