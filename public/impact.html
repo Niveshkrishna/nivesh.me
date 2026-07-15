@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impact Passport is the verified identity and reporting layer for volunteering, CSR, and social impact programs.">
+    <title>Impact Passport | Investor & Partner Ready Social Impact Infrastructure</title>
+    <style>
+        /* Base Styles & Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0070F3;
+            --primary-green: #10B981;
+            --dark-text: #0A2540;
+            --light-text: #4B5563;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(0, 112, 243, 0.08), transparent 26%),
+                radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 22%),
+                linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 48%, #F3F7FC 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            min-width: max-content;
+        }
+
+        .brand-mark {
+            width: 2.55rem;
+            height: 2.55rem;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 24px rgba(0, 112, 243, 0.22);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-mark::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.32);
+        }
+
+        .brand-mark svg {
+            width: 1.35rem;
+            height: 1.35rem;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--dark-text);
+        }
+
+        .brand-tagline {
+            margin-top: .2rem;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+        }
+
+        .nav-links a {
+            margin-left: 0;
+            color: var(--light-text);
+            font-weight: 600;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 112, 243, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #005ae0;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 5% 4rem;
+            background: linear-gradient(180deg, var(--white) 0%, var(--bg-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 112, 243, .15);
+            background: rgba(0, 112, 243, .06);
+            color: var(--primary-blue);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .trust-strip {
+            max-width: 1100px;
+            margin: 2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .trust-pill {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+        }
+
+        .trust-pill strong {
+            display: block;
+            color: var(--dark-text);
+            font-size: .95rem;
+            margin-bottom: .25rem;
+        }
+
+        .trust-pill span {
+            color: var(--light-text);
+            font-size: .85rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-kicker {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            margin-bottom: .85rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            margin-bottom: 4rem;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid #E5E7EB;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        .insight-grid,
+        .partner-grid,
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .insight-card,
+        .partner-card,
+        .roadmap-card {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        .insight-card .eyebrow-mini,
+        .partner-card .eyebrow-mini,
+        .roadmap-card .eyebrow-mini {
+            display: inline-block;
+            padding: .25rem .55rem;
+            border-radius: 999px;
+            background: rgba(0, 112, 243, .08);
+            color: var(--primary-blue);
+            font-size: .7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .9rem;
+        }
+
+        .insight-card h3,
+        .partner-card h3,
+        .roadmap-card h3 {
+            margin-bottom: .7rem;
+        }
+
+        .metric-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .metric-chip {
+            background: rgba(15, 23, 42, 0.03);
+            border: 1px solid #E2E8F0;
+            border-radius: 999px;
+            padding: .8rem 1rem;
+            text-align: center;
+            color: var(--dark-text);
+            font-weight: 700;
+            font-size: .9rem;
+        }
+
+        .cta-panel {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding: 1.5rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #0A2540 0%, #133B66 52%, #0E6FD8 100%);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 30px 60px rgba(10, 37, 64, 0.18);
+        }
+
+        .cta-panel p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: .35rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: .85rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Ecosystem Section */
+        .bg-dark {
+            background-color: var(--dark-text);
+            color: var(--white);
+        }
+
+        .bg-dark .section-subtitle,
+        .bg-dark .card p {
+            color: #9CA3AF;
+        }
+
+        .bg-dark .card {
+            background: #1F2937;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background: var(--white);
+            color: var(--light-text);
+            border-top: 1px solid #E5E7EB;
+        }
+
+        /* ===== Platform Demo Section ===== */
+        .demo-section {
+            background: linear-gradient(135deg, #0A1628 0%, #132744 50%, #0D1F3C 100%);
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        .demo-section::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0,112,243,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .demo-section::after {
+            content: '';
+            position: absolute;
+            bottom: -150px; left: -150px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .demo-section .section-title { color: #fff; }
+        .demo-section .section-subtitle { color: #94A3B8; }
+
+        .demo-tabs {
+            display: flex;
+            justify-content: center;
+            gap: .75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        .demo-tab {
+            padding: .7rem 1.4rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.05);
+            color: #94A3B8;
+            font-weight: 600;
+            font-size: .9rem;
+            cursor: pointer;
+            transition: all .3s;
+            backdrop-filter: blur(8px);
+        }
+        .demo-tab:hover { background: rgba(255,255,255,0.1); color: #CBD5E1; }
+        .demo-tab.active {
+            background: linear-gradient(135deg, var(--primary-blue), #3B82F6);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(0,112,243,0.4);
+        }
+
+        .demo-screen-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .demo-screen {
+            display: none;
+            animation: fadeInScreen .5s ease;
+        }
+        .demo-screen.active { display: block; }
+        @keyframes fadeInScreen {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .demo-browser {
+            background: #1E293B;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .demo-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 20px;
+            background: #0F172A;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .demo-browser-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .demo-browser-bar .dot.red { background: #EF4444; }
+        .demo-browser-bar .dot.yellow { background: #F59E0B; }
+        .demo-browser-bar .dot.green { background: #22C55E; }
+        .demo-url-bar {
+            flex: 1;
+            margin-left: 12px;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 6px;
+            color: #64748B;
+            font-size: .8rem;
+            font-family: 'Inter', monospace;
+        }
+        .demo-browser-content {
+            padding: 2rem;
+            min-height: 420px;
+        }
+
+        /* Shared demo inner styles */
+        .demo-profile-header {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .demo-avatar {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3B82F6, #10B981);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; color: #fff; font-weight: 700;
+            flex-shrink: 0;
+        }
+        .demo-name { color: #F1F5F9; font-size: 1.4rem; font-weight: 700; }
+        .demo-name-sub { color: #64748B; font-size: .85rem; margin-top: 2px; }
+        .demo-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: .7rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .demo-badge.verified { background: rgba(16,185,129,0.15); color: #34D399; }
+        .demo-badge.level { background: rgba(59,130,246,0.15); color: #60A5FA; }
+
+        .demo-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .demo-stat-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .demo-stat-val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .demo-stat-label { color: #64748B; font-size: .75rem; text-transform: uppercase; letter-spacing: .5px; margin-top: 4px; }
+
+        .demo-timeline { list-style: none; padding: 0; }
+        .demo-timeline li {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: .75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .demo-timeline-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        .demo-timeline-title { color: #E2E8F0; font-weight: 600; font-size: .9rem; }
+        .demo-timeline-meta { color: #64748B; font-size: .78rem; }
+
+        /* Opportunity cards */
+        .demo-opp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .demo-opp-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.2rem;
+            transition: all .3s;
+        }
+        .demo-opp-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-2px); }
+        .demo-opp-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: .7rem;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 6px;
+        }
+        .demo-opp-title { color: #F1F5F9; font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+        .demo-opp-org { color: #64748B; font-size: .8rem; margin-bottom: 8px; }
+        .demo-opp-footer { display: flex; justify-content: space-between; align-items: center; }
+        .demo-opp-match {
+            font-size: .75rem; font-weight: 700;
+            color: #34D399;
+        }
+        .demo-opp-btn {
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: rgba(59,130,246,0.2);
+            color: #60A5FA;
+            border: none;
+            font-size: .75rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* NGO Dashboard */
+        .demo-dash-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .demo-dash-title { color: #F1F5F9; font-size: 1.2rem; font-weight: 700; }
+        .demo-dash-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .demo-dash-stat {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+        .demo-dash-stat-val { font-size: 1.4rem; font-weight: 800; color: #F1F5F9; }
+        .demo-dash-stat-label { color: #64748B; font-size: .75rem; margin-top: 2px; }
+        .demo-dash-stat-change { font-size: .7rem; font-weight: 600; }
+        .demo-dash-stat-change.up { color: #34D399; }
+
+        .demo-event-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .demo-event-table th {
+            text-align: left;
+            color: #64748B;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: .6rem .5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .demo-event-table td {
+            color: #CBD5E1;
+            font-size: .85rem;
+            padding: .7rem .5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .demo-status {
+            padding: 2px 8px;
+            border-radius: 50px;
+            font-size: .7rem;
+            font-weight: 600;
+        }
+        .demo-status.live { background: rgba(34,197,94,0.15); color: #4ADE80; }
+        .demo-status.upcoming { background: rgba(59,130,246,0.15); color: #60A5FA; }
+        .demo-status.completed { background: rgba(148,163,184,0.15); color: #94A3B8; }
+
+        /* QR Screen */
+        .demo-qr-layout { display: flex; gap: 2rem; align-items: center; }
+        .demo-qr-left { flex: 1; text-align: center; }
+        .demo-qr-right { flex: 1; }
+        .demo-qr-box {
+            width: 180px; height: 180px;
+            margin: 0 auto 1.5rem;
+            background: #fff;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(59,130,246,0.2);
+        }
+        .demo-qr-grid {
+            display: grid;
+            grid-template-columns: repeat(9,1fr);
+            grid-template-rows: repeat(9,1fr);
+            width: 140px; height: 140px;
+            gap: 2px;
+        }
+        .demo-qr-cell {
+            border-radius: 2px;
+        }
+        .demo-qr-cell.dark { background: #0F172A; }
+        .demo-qr-cell.light { background: transparent; }
+        .demo-qr-pulse {
+            position: absolute;
+            inset: -4px;
+            border-radius: 20px;
+            border: 2px solid rgba(59,130,246,0.4);
+            animation: qrPulse 2s ease-in-out infinite;
+        }
+        @keyframes qrPulse {
+            0%, 100% { opacity: .4; transform: scale(1); }
+            50% { opacity: .8; transform: scale(1.04); }
+        }
+        .demo-verify-steps { list-style: none; padding: 0; }
+        .demo-verify-steps li {
+            display: flex; align-items: center; gap: .75rem;
+            padding: .7rem 0;
+            color: #CBD5E1;
+            font-size: .9rem;
+        }
+        .demo-step-icon {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: .85rem;
+            flex-shrink: 0;
+        }
+        .demo-step-icon.done { background: rgba(34,197,94,0.15); color: #4ADE80; }
+        .demo-step-icon.active { background: rgba(59,130,246,0.2); color: #60A5FA; animation: pulse 1.5s infinite; }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.3); }
+            50% { box-shadow: 0 0 0 8px rgba(59,130,246,0); }
+        }
+        .demo-step-icon.pending { background: rgba(148,163,184,0.1); color: #475569; }
+
+        .demo-caption {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #64748B;
+            font-size: .85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .trust-strip,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .insight-grid,
+            .partner-grid,
+            .roadmap-grid,
+            .metric-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mockup-body {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .demo-stats-row { grid-template-columns: repeat(2, 1fr); }
+            .demo-opp-grid { grid-template-columns: 1fr; }
+            .demo-qr-layout { flex-direction: column; }
+            .demo-dash-stats { grid-template-columns: 1fr; }
+            .demo-tabs { gap: .4rem; }
+            .demo-tab { padding: .5rem 1rem; font-size: .8rem; }
+            .demo-browser-content { padding: 1rem; }
+            .cta-panel { flex-direction: column; align-items: flex-start; }
+            .cta-actions { justify-content: flex-start; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a class="brand" href="#top" aria-label="Impact Passport home">
+            <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                    <path d="M8 4.5H16C16.8284 4.5 17.5 5.17157 17.5 6V18C17.5 18.8284 16.8284 19.5 16 19.5H8C7.17157 19.5 6.5 18.8284 6.5 18V6C6.5 5.17157 7.17157 4.5 8 4.5Z" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M9.5 8H14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M9.5 11.5H14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M9.5 15H12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <span class="brand-name">Impact Passport</span>
+                <span class="brand-tagline">Verified impact infra</span>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="#problem">The Problem</a>
+            <a href="#solution">Solution</a>
+            <a href="#demo">Platform Demo</a>
+            <a href="#investors">Investor Snapshot</a>
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#partners">Partners</a>
+        </div>
+        <button class="btn btn-primary">Join Waitlist</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="eyebrow">Verified volunteering infrastructure</div>
+        <h1>The trust layer for<br>social impact.</h1>
+        <p>Impact Passport gives NGOs, CSR teams, universities, and public-sector partners one verified system for
+            volunteering, attendance, and credentials. It turns fragmented activity into a measurable, partner-ready
+            network.</p>
+        <div class="hero-buttons">
+            <button class="btn btn-primary">Request a Pilot</button>
+            <button class="btn btn-outline">Partner With Us</button>
+        </div>
+        <div class="trust-strip">
+            <div class="trust-pill">
+                <strong>Verified records</strong>
+                <span>Attendance, certificates, and impact history in one trust layer.</span>
+            </div>
+            <div class="trust-pill">
+                <strong>CSR ready</strong>
+                <span>Built for enterprise reporting, governance, and auditability.</span>
+            </div>
+            <div class="trust-pill">
+                <strong>Institution friendly</strong>
+                <span>Easy to position for NGOs, universities, and government partners.</span>
+            </div>
+            <div class="trust-pill">
+                <strong>Network effects</strong>
+                <span>More verified activity improves matching, retention, and data value.</span>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section">
+        <div class="section-kicker">Why now</div>
+        <h2 class="section-title">The ecosystem is fragmented and under-measured.</h2>
+        <p class="section-subtitle">Volunteering still relies on manual coordination, unverified credentials, and
+            scattered reporting across organizations.</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">📄</div>
+                <h3>Unstructured Recognition</h3>
+                <p>Impact lives in PDFs, spreadsheets, and screenshots. That makes it hard to trust, compare, or reuse
+                    across applications, CSR programs, and institutional reporting.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📉</div>
+                <h3>Low Retention</h3>
+                <p>Without a persistent identity and reward loop, volunteers have little reason to stay engaged beyond
+                    a single event or campaign.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Manual CSR Ops</h3>
+                <p>Companies and institutions still track participation manually, which creates audit friction and
+                    prevents real-time, verified impact reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section" style="background: var(--white);">
+        <div class="section-kicker">The product</div>
+        <h2 class="section-title">One lifelong impact identity.</h2>
+        <p class="section-subtitle">Every act of service is verified, attached to a permanent profile, and ready to be
+            reused by partners who need trust.</p>
+
+        <div class="grid-3">
+            <div class="card" style="border-top: 4px solid var(--primary-blue);">
+                <h3>For Volunteers</h3>
+                <p>Discover opportunities via AI-matching. Build a verifiable resume of your social good to share with
+                    future employers and universities.</p>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--primary-green);">
+                <h3>For NGOs</h3>
+                <p>An end-to-end operating system. Create events, recruit vetted volunteers, track attendance via QR
+                    codes, and issue digital credentials instantly.</p>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--dark-text);">
+                <h3>For Companies & Institutions</h3>
+                <p>Launch volunteering programs, track participation in real time, and generate verified ESG or
+                    institutional impact reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Snapshot -->
+    <section id="investors" class="section">
+        <div class="section-kicker">Investor snapshot</div>
+        <h2 class="section-title">Built like infrastructure, monetized like software.</h2>
+        <p class="section-subtitle">The business combines workflow SaaS, verification rails, and a networked trust
+            graph that gets more valuable as adoption grows.</p>
+
+        <div class="insight-grid">
+            <div class="insight-card">
+                <div class="eyebrow-mini">Revenue</div>
+                <h3>Multiple paths to recurring revenue</h3>
+                <p>Enterprise licenses, NGO workflow subscriptions, CSR reporting packages, and premium verification
+                    services can all sit on the same platform.</p>
+            </div>
+            <div class="insight-card">
+                <div class="eyebrow-mini">Moat</div>
+                <h3>A verified data layer compounds over time</h3>
+                <p>Each attendance check-in, certificate, and partner interaction improves the trust graph and makes the
+                    product harder to replace.</p>
+            </div>
+            <div class="insight-card">
+                <div class="eyebrow-mini">Distribution</div>
+                <h3>Multi-sided growth through partners</h3>
+                <p>NGOs bring volunteers, companies bring CSR budgets, and universities add long-term credential value.
+                    Each side reinforces the others.</p>
+            </div>
+            <div class="insight-card">
+                <div class="eyebrow-mini">Expansion</div>
+                <h3>Clear path from pilot to platform</h3>
+                <p>Start with one organization, expand to district or enterprise programs, then layer reporting and
+                    credentialing across the ecosystem.</p>
+            </div>
+        </div>
+
+        <div class="metric-list">
+            <div class="metric-chip">Verified attendance</div>
+            <div class="metric-chip">CSR reporting</div>
+            <div class="metric-chip">Volunteer retention</div>
+            <div class="metric-chip">Institutional trust</div>
+        </div>
+    </section>
+
+    <!-- Platform Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="section-kicker" style="color: #93C5FD;">Platform demo</div>
+        <h2 class="section-title">See the platform in action.</h2>
+        <p class="section-subtitle">Explore what Impact Passport looks like for volunteers, NGOs, companies, and
+            verifiers.</p>
+
+        <div class="demo-tabs">
+            <button class="demo-tab active" data-screen="passport">🪪 Impact Passport</button>
+            <button class="demo-tab" data-screen="discover">🔍 Discover</button>
+            <button class="demo-tab" data-screen="ngo">📊 NGO Dashboard</button>
+            <button class="demo-tab" data-screen="qr">📱 QR Verification</button>
+        </div>
+
+        <div class="demo-screen-wrapper">
+
+            <!-- Screen 1: Impact Passport -->
+            <div class="demo-screen active" id="screen-passport">
+                <div class="demo-browser">
+                    <div class="demo-browser-bar">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <div class="demo-url-bar">impactpassport.org/profile/priya-sharma</div>
+                    </div>
+                    <div class="demo-browser-content">
+                        <div class="demo-profile-header">
+                            <div class="demo-avatar">PS</div>
+                            <div>
+                                <div class="demo-name">Priya Sharma</div>
+                                <div class="demo-name-sub">Computer Science Student · Mumbai, India</div>
+                                <span class="demo-badge verified">✓ Verified Volunteer</span>
+                                <span class="demo-badge level">Level 4 · Changemaker</span>
+                            </div>
+                        </div>
+                        <div class="demo-stats-row">
+                            <div class="demo-stat-card">
+                                <div class="demo-stat-val">842</div>
+                                <div class="demo-stat-label">Impact Score</div>
+                            </div>
+                            <div class="demo-stat-card">
+                                <div class="demo-stat-val">120h</div>
+                                <div class="demo-stat-label">Verified Hours</div>
+                            </div>
+                            <div class="demo-stat-card">
+                                <div class="demo-stat-val">7</div>
+                                <div class="demo-stat-label">Organizations</div>
+                            </div>
+                            <div class="demo-stat-card">
+                                <div class="demo-stat-val">12</div>
+                                <div class="demo-stat-label">Certificates</div>
+                            </div>
+                        </div>
+                        <div style="color: #94A3B8; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .75rem;">Verified Activity</div>
+                        <ul class="demo-timeline">
+                            <li>
+                                <div class="demo-timeline-dot" style="background: #22C55E;"></div>
+                                <div>
+                                    <div class="demo-timeline-title">Beach Cleanup Drive — Coastal Care Foundation</div>
+                                    <div class="demo-timeline-meta">Jul 12, 2026 · 4 hours · Verified ✓</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="demo-timeline-dot" style="background: #3B82F6;"></div>
+                                <div>
+                                    <div class="demo-timeline-title">Python Workshop for Rural Students — Code for India</div>
+                                    <div class="demo-timeline-meta">Jun 28, 2026 · 6 hours · Verified ✓</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="demo-timeline-dot" style="background: #F59E0B;"></div>
+                                <div>
+                                    <div class="demo-timeline-title">Food Distribution — Hunger Free India</div>
+                                    <div class="demo-timeline-meta">Jun 15, 2026 · 3 hours · Verified ✓</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="demo-caption">Your lifelong, verified impact profile — shareable with employers, universities, and governments.</p>
+            </div>
+
+            <!-- Screen 2: Discover Opportunities -->
+            <div class="demo-screen" id="screen-discover">
+                <div class="demo-browser">
+                    <div class="demo-browser-bar">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <div class="demo-url-bar">impactpassport.org/discover</div>
+                    </div>
+                    <div class="demo-browser-content">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="color: #F1F5F9; font-size: 1.2rem; font-weight: 700;">🔍 AI-Matched Opportunities</div>
+                            <div style="padding: 6px 14px; background: rgba(255,255,255,0.06); border-radius: 8px; color: #64748B; font-size: .85rem; border: 1px solid rgba(255,255,255,0.08);">Mumbai, India ▾</div>
+                        </div>
+                        <div class="demo-opp-grid">
+                            <div class="demo-opp-card">
+                                <div>
+                                    <span class="demo-opp-tag" style="background: rgba(34,197,94,0.15); color: #4ADE80;">Environment</span>
+                                    <span class="demo-opp-tag" style="background: rgba(251,191,36,0.15); color: #FBBF24;">Weekend</span>
+                                </div>
+                                <div class="demo-opp-title">Mangrove Restoration Project</div>
+                                <div class="demo-opp-org">Green Earth Foundation · Jul 20</div>
+                                <div class="demo-opp-footer">
+                                    <span class="demo-opp-match">95% match</span>
+                                    <button class="demo-opp-btn">Apply →</button>
+                                </div>
+                            </div>
+                            <div class="demo-opp-card">
+                                <div>
+                                    <span class="demo-opp-tag" style="background: rgba(59,130,246,0.15); color: #60A5FA;">Education</span>
+                                    <span class="demo-opp-tag" style="background: rgba(168,85,247,0.15); color: #C084FC;">Remote</span>
+                                </div>
+                                <div class="demo-opp-title">Online Tutoring for Underprivileged</div>
+                                <div class="demo-opp-org">Teach For All India · Ongoing</div>
+                                <div class="demo-opp-footer">
+                                    <span class="demo-opp-match">91% match</span>
+                                    <button class="demo-opp-btn">Apply →</button>
+                                </div>
+                            </div>
+                            <div class="demo-opp-card">
+                                <div>
+                                    <span class="demo-opp-tag" style="background: rgba(236,72,153,0.15); color: #F472B6;">Health</span>
+                                    <span class="demo-opp-tag" style="background: rgba(251,191,36,0.15); color: #FBBF24;">Weekday</span>
+                                </div>
+                                <div class="demo-opp-title">Blood Donation Camp Coordinator</div>
+                                <div class="demo-opp-org">Red Cross Mumbai · Jul 25</div>
+                                <div class="demo-opp-footer">
+                                    <span class="demo-opp-match">87% match</span>
+                                    <button class="demo-opp-btn">Apply →</button>
+                                </div>
+                            </div>
+                            <div class="demo-opp-card">
+                                <div>
+                                    <span class="demo-opp-tag" style="background: rgba(59,130,246,0.15); color: #60A5FA;">Tech</span>
+                                    <span class="demo-opp-tag" style="background: rgba(34,197,94,0.15); color: #4ADE80;">CSR Partner</span>
+                                </div>
+                                <div class="demo-opp-title">Digital Literacy for Senior Citizens</div>
+                                <div class="demo-opp-org">HelpAge India · Aug 2</div>
+                                <div class="demo-opp-footer">
+                                    <span class="demo-opp-match">84% match</span>
+                                    <button class="demo-opp-btn">Apply →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="demo-caption">AI-powered matching finds the perfect opportunities based on your skills, interests, and availability.</p>
+            </div>
+
+            <!-- Screen 3: NGO Dashboard -->
+            <div class="demo-screen" id="screen-ngo">
+                <div class="demo-browser">
+                    <div class="demo-browser-bar">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <div class="demo-url-bar">impactpassport.org/org/green-earth-foundation/dashboard</div>
+                    </div>
+                    <div class="demo-browser-content">
+                        <div class="demo-dash-topbar">
+                            <div class="demo-dash-title">🏢 Green Earth Foundation</div>
+                            <button class="demo-opp-btn" style="padding: 6px 16px;">+ Create Event</button>
+                        </div>
+                        <div class="demo-dash-stats">
+                            <div class="demo-dash-stat">
+                                <div class="demo-dash-stat-val">1,247</div>
+                                <div class="demo-dash-stat-label">Total Volunteers</div>
+                                <div class="demo-dash-stat-change up">↑ 23% this month</div>
+                            </div>
+                            <div class="demo-dash-stat">
+                                <div class="demo-dash-stat-val">3,840h</div>
+                                <div class="demo-dash-stat-label">Hours Logged</div>
+                                <div class="demo-dash-stat-change up">↑ 18% this month</div>
+                            </div>
+                            <div class="demo-dash-stat">
+                                <div class="demo-dash-stat-val">156</div>
+                                <div class="demo-dash-stat-label">Certificates Issued</div>
+                                <div class="demo-dash-stat-change up">↑ 31% this month</div>
+                            </div>
+                        </div>
+                        <div style="color: #94A3B8; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .75rem;">Events</div>
+                        <table class="demo-event-table">
+                            <thead>
+                                <tr>
+                                    <th>Event Name</th>
+                                    <th>Date</th>
+                                    <th>Volunteers</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mangrove Restoration</td>
+                                    <td>Jul 20, 2026</td>
+                                    <td>42 / 50</td>
+                                    <td><span class="demo-status live">● Live</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Beach Cleanup Season 2</td>
+                                    <td>Aug 5, 2026</td>
+                                    <td>18 / 80</td>
+                                    <td><span class="demo-status upcoming">○ Upcoming</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Tree Plantation Drive</td>
+                                    <td>Jun 14, 2026</td>
+                                    <td>65 / 65</td>
+                                    <td><span class="demo-status completed">● Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Wetland Survey 2026</td>
+                                    <td>May 22, 2026</td>
+                                    <td>30 / 30</td>
+                                    <td><span class="demo-status completed">● Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="demo-caption">NGOs get a complete operating system — create events, recruit volunteers, track attendance, and issue credentials.</p>
+            </div>
+
+            <!-- Screen 4: QR Verification -->
+            <div class="demo-screen" id="screen-qr">
+                <div class="demo-browser">
+                    <div class="demo-browser-bar">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <div class="demo-url-bar">impactpassport.org/verify/event/mangrove-2026</div>
+                    </div>
+                    <div class="demo-browser-content">
+                        <div class="demo-qr-layout">
+                            <div class="demo-qr-left">
+                                <div style="color: #F1F5F9; font-weight: 700; font-size: 1.1rem; margin-bottom: .5rem;">Check-in QR Code</div>
+                                <div style="color: #64748B; font-size: .85rem; margin-bottom: 1.5rem;">Mangrove Restoration · Jul 20, 2026</div>
+                                <div class="demo-qr-box">
+                                    <div class="demo-qr-pulse"></div>
+                                    <div class="demo-qr-grid" id="qr-grid"></div>
+                                </div>
+                                <div style="color: #64748B; font-size: .8rem;">Scan to verify attendance</div>
+                            </div>
+                            <div class="demo-qr-right">
+                                <div style="color: #94A3B8; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Verification Flow</div>
+                                <ul class="demo-verify-steps">
+                                    <li>
+                                        <div class="demo-step-icon done">✓</div>
+                                        <div>
+                                            <div style="font-weight: 600;">Volunteer scans QR code</div>
+                                            <div style="color: #64748B; font-size: .8rem;">Location verified via GPS</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="demo-step-icon done">✓</div>
+                                        <div>
+                                            <div style="font-weight: 600;">Identity confirmed</div>
+                                            <div style="color: #64748B; font-size: .8rem;">Matched to Impact Passport profile</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="demo-step-icon active">⟳</div>
+                                        <div>
+                                            <div style="font-weight: 600;">NGO approves attendance</div>
+                                            <div style="color: #64748B; font-size: .8rem;">Coordinator confirms participation</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="demo-step-icon pending">○</div>
+                                        <div>
+                                            <div style="font-weight: 600;">Hours added to passport</div>
+                                            <div style="color: #64748B; font-size: .8rem;">Permanently recorded &amp; verifiable</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="demo-step-icon pending">○</div>
+                                        <div>
+                                            <div style="font-weight: 600;">Certificate issued</div>
+                                            <div style="color: #64748B; font-size: .8rem;">Digital credential ready to share</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="demo-caption">QR-based attendance tracking with multi-step verification ensures every recorded hour is trustworthy.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section id="partners" class="section" style="background: var(--white);">
+        <div class="section-kicker">Partners</div>
+        <h2 class="section-title">Ready for NGO, CSR, university, and public-sector partners.</h2>
+        <p class="section-subtitle">The platform is designed to plug into real-world programs, not just look good in a
+            demo.</p>
+
+        <div class="partner-grid">
+            <div class="partner-card">
+                <div class="eyebrow-mini">NGOs</div>
+                <h3>Program operations</h3>
+                <p>Volunteer recruitment, event creation, check-in, attendance verification, and instant credentials in a
+                    single workflow.</p>
+            </div>
+            <div class="partner-card">
+                <div class="eyebrow-mini">CSR teams</div>
+                <h3>Verified reporting</h3>
+                <p>Track employee participation, generate auditable impact summaries, and reduce the manual overhead of
+                    campaign management.</p>
+            </div>
+            <div class="partner-card">
+                <div class="eyebrow-mini">Universities</div>
+                <h3>Credential value</h3>
+                <p>Give students a verified social-impact profile that can support admissions, placements, and campus
+                    engagement goals.</p>
+            </div>
+            <div class="partner-card">
+                <div class="eyebrow-mini">Government</div>
+                <h3>Policy-ready data</h3>
+                <p>Support civic engagement programs with trusted reporting that can be reviewed, shared, and measured at
+                    scale.</p>
+            </div>
+        </div>
+
+        <div class="cta-panel">
+            <div>
+                <div style="font-size: 1.2rem; font-weight: 800;">Want a pilot, a partnership, or a founder intro?</div>
+                <p>Use the same product to serve operators, partners, and investors without changing the core workflow.</p>
+            </div>
+            <div class="cta-actions">
+                <button class="btn btn-light">Request Partnership Deck</button>
+                <button class="btn btn-primary">Book a Pilot Call</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="section">
+        <div class="section-kicker">Roadmap</div>
+        <h2 class="section-title">From product demo to platform rollout.</h2>
+        <p class="section-subtitle">A clear path to pilots, integrations, and broader ecosystem adoption.</p>
+
+        <div class="roadmap-grid">
+            <div class="roadmap-card">
+                <div class="eyebrow-mini">Phase 1</div>
+                <h3>Pilot with anchor NGOs</h3>
+                <p>Launch with a few high-signal organizations to validate volunteer flows, attendance verification, and
+                    credential issuance.</p>
+            </div>
+            <div class="roadmap-card">
+                <div class="eyebrow-mini">Phase 2</div>
+                <h3>Expand to CSR partners</h3>
+                <p>Add corporate volunteering, reporting dashboards, and stakeholder-ready summaries for enterprise
+                    teams.</p>
+            </div>
+            <div class="roadmap-card">
+                <div class="eyebrow-mini">Phase 3</div>
+                <h3>Layer in institutions</h3>
+                <p>Bring universities and public programs into the trust network so verified impact carries across
+                    contexts.</p>
+            </div>
+            <div class="roadmap-card">
+                <div class="eyebrow-mini">Phase 4</div>
+                <h3>Scale the network effect</h3>
+                <p>More verified data improves matching, reporting, and credibility, making the platform more valuable
+                    to every side of the market.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem / Future Section -->
+    <section id="ecosystem" class="section bg-dark">
+        <div class="section-kicker" style="color: #93C5FD;">Ecosystem</div>
+        <h2 class="section-title">Building the infrastructure for good.</h2>
+        <p class="section-subtitle">A network effect that scales social impact globally and creates durable value for
+            partners.</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <h3 style="color: var(--white);">🌍 Unified Marketplace</h3>
+                <p>Seamlessly matching localized supply (volunteers) with demand (NGOs) using advanced semantic search
+                    and AI.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--white);">🛡️ Verified Trust Layer</h3>
+                <p>Organizations verify attendance. Universities and Governments can instantly trust the data on an
+                    Impact Passport.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--white);">📈 Flywheel Effect</h3>
+                <p>More NGOs bring more volunteers. More verified data brings more corporate partners, driving massive
+                    systemic change.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2 style="color: var(--dark-text); margin-bottom: 1rem;">Ready for pilots, partners, and investors?</h2>
+        <button class="btn btn-primary" style="margin-bottom: 2rem;">Get Early Access</button>
+        <p>&copy; 2026 Impact Passport. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Demo tab switching
+        document.querySelectorAll('.demo-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.demo-screen').forEach(s => s.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('screen-' + tab.dataset.screen).classList.add('active');
+            });
+        });
+
+        // Generate QR code pattern
+        const grid = document.getElementById('qr-grid');
+        if (grid) {
+            const pattern = [
+                1,1,1,0,1,0,1,1,1,
+                1,0,1,0,0,1,1,0,1,
+                1,1,1,0,1,1,1,1,1,
+                0,0,0,1,0,1,0,0,0,
+                1,0,1,1,1,0,1,0,1,
+                0,0,0,1,0,1,0,0,0,
+                1,1,1,0,1,0,1,1,1,
+                1,0,1,1,0,1,1,0,1,
+                1,1,1,0,1,0,1,1,1
+            ];
+            pattern.forEach(v => {
+                const cell = document.createElement('div');
+                cell.className = 'demo-qr-cell ' + (v ? 'dark' : 'light');
+                grid.appendChild(cell);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
